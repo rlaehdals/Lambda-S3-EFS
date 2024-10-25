@@ -43,7 +43,6 @@ resource "aws_internet_gateway" "igw" {
 }
 
 
-# ! public_rtb
 resource "aws_route_table" "public_rtb" {
   count  = var.sub_count
   vpc_id = aws_vpc.vpc.id
@@ -71,7 +70,6 @@ resource "aws_route_table_association" "public_rtb" {
 }
 
 
-# ! private_rtb
 resource "aws_eip" "eip" {
   tags = {
     Name = "test-eip"
