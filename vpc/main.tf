@@ -1,4 +1,3 @@
-//디폴트 외 별도의 vpc 1개 생성
 resource "aws_vpc" "vpc" {
   cidr_block                       = var.vpc_cidr
   assign_generated_ipv6_cidr_block = true
