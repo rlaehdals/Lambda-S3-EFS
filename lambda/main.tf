@@ -4,7 +4,7 @@ module "lambda_s3" {
   lambda_name   = "lambda_s3"
   variables     = {}
   architectures = ["arm64"]
-  memory_size = 3008
+  memory_size   = 3008
 
   image_uri = "${var.account_id}.dkr.ecr.${var.region}.amazonaws.com/lambda-s3:latest"
 
@@ -42,10 +42,10 @@ module "lambda_efs" {
 
 data "aws_iam_policy_document" "lambda_efs_policy" {
   statement {
-    effect    = "Allow"
+    effect = "Allow"
     resources = [
       "arn:aws:elasticfilesystem:ap-northeast-2:${var.account_id}:file-system/*",
-      "arn:aws:elasticfilesystem:ap-northeast-2:${var.account_id}:access-point/*"]
+    "arn:aws:elasticfilesystem:ap-northeast-2:${var.account_id}:access-point/*"]
     actions = [
       "elasticfilesystem:ClientMount",
       "elasticfilesystem:DescribeAccessPoints"

@@ -5,7 +5,7 @@ resource "aws_vpc" "vpc" {
   enable_dns_support               = true
 
   tags = {
-    Name        = "test-vpc"
+    Name = "test-vpc"
   }
 }
 
@@ -40,8 +40,8 @@ resource "aws_route_table_association" "private_rtb_association" {
 }
 
 resource "aws_vpc_endpoint" "s3" {
-  vpc_id       = aws_vpc.vpc.id
-  service_name = "com.amazonaws.${var.region}.s3"
+  vpc_id            = aws_vpc.vpc.id
+  service_name      = "com.amazonaws.${var.region}.s3"
   vpc_endpoint_type = "Gateway"
 
   tags = {
