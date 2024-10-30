@@ -21,13 +21,13 @@ resource "aws_efs_access_point" "lambda-test" {
 
   posix_user {
     gid            = 0
-    secondary_ids = []
+    secondary_gids = []
     uid            = 0
   }
 
 }
 
-resource "aws_efs_mount_target" "alpha" {
+resource "aws_efs_mount_target" "mount" {
   file_system_id  = aws_efs_file_system.efs.id
   subnet_id       = var.subnet_ids[0]
   security_groups = [var.security_groups]

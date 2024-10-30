@@ -1,7 +1,9 @@
 module "vpc" {
   source = "./vpc"
+
   vpc_cidr  = "10.0.0.0/16"
   sub_count = 1
+  region = "ap-northeast-2"
 }
 
 module "sg" {

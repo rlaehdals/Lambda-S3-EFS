@@ -6,3 +6,4 @@ variable "sub_count" {
   type = number
 }
 
+variable "region" {}

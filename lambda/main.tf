@@ -4,6 +4,7 @@ module "lambda_s3" {
   lambda_name   = "lambda_s3"
   variables     = {}
   architectures = ["arm64"]
+  memory_size = 3008
 
   image_uri = "${var.account_id}.dkr.ecr.${var.region}.amazonaws.com/lambda-s3:latest"
 
@@ -54,8 +55,14 @@ data "aws_iam_policy_document" "lambda_efs_policy" {
 
 data "aws_iam_policy_document" "lambda_s3_policy" {
   statement {
-    actions = ["s3:GetObject"]
-    resources = ["${var.bucket_arn}/*"]
+    actions = [
+      "s3:GetObject",
+      "s3:ListBucket"
+    ]
+    resources = [
+      "${var.bucket_arn}/*",
+      var.bucket_arn
+    ]
     effect = "Allow"
   }
 }
